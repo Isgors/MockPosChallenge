@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <!-- Gold Flavor - Dark Theme -->
+        <color name="flavor_primary_dark">#FFB08D57</color> <!-- Dark Gold -->
+        <color name="flavor_secondary_dark">#FFD4AF37</color> <!-- Gold -->
+        <color name="flavor_tertiary_dark">#FFC0C0C0</color> <!-- Silver (as an accent) -->
+
+        <!-- Gold Flavor - Light Theme -->
+        <color name="flavor_primary_light">#FFCFB53B</color> <!-- Lighter Gold -->
+        <color name="flavor_secondary_light">#FFFDD017</color> <!-- Bright Gold -->
+        <color name="flavor_tertiary_light">#FFE6E6E6</color> <!-- Light Silver -->
+    </resources>
+    

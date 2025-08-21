@@ -19,14 +19,35 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
+        }
+        release {
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
     }
+
+    flavorDimensions += listOf("version", "environment")
+
+    productFlavors {
+        create("standard") {
+            dimension = "version"
+        }
+        create("gold") {
+            dimension = "version"
+        }
+        create("staging") {
+            dimension = "environment"
+        }
+        create("production") {
+            dimension = "environment"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -45,7 +66,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.compose.material)
     implementation(libs.compose.materialIcons)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
@@ -55,9 +75,6 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

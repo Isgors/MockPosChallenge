@@ -1,11 +1,22 @@
 package com.igordesouza.mockposchallenge.ui.theme
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.colorResource
+import com.igordesouza.mockposchallenge.R
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+// Composable functions to get flavor-specific colors
+@Composable
+fun flavorPrimaryDark(): Color = colorResource(id = R.color.flavor_primary_dark)
+@Composable
+fun flavorSecondaryDark(): Color = colorResource(id = R.color.flavor_secondary_dark)
+@Composable
+fun flavorTertiaryDark(): Color = colorResource(id = R.color.flavor_tertiary_dark)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+
+@Composable
+fun flavorPrimaryLight(): Color = colorResource(id = R.color.flavor_primary_light)
+@Composable
+fun flavorSecondaryLight(): Color = colorResource(id = R.color.flavor_secondary_light)
+@Composable
+fun flavorTertiaryLight(): Color = colorResource(id = R.color.flavor_tertiary_light)
