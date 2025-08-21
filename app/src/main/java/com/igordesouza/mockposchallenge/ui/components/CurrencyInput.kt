@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.igordesouza.mockposchallenge.ui.theme.MockPosChallengeTheme
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -122,7 +123,7 @@ private fun formatCurrency(numericText: String): String {
 @Preview(showBackground = true)
 @Composable
 fun CurrencyInputPreview() {
-    MaterialTheme {
+    MockPosChallengeTheme {
         var amountInCents by remember { mutableLongStateOf(55232L) }
         CurrencyInput(
             modifier = Modifier.padding(16.dp),
@@ -138,7 +139,7 @@ fun CurrencyInputPreview() {
 @Preview(showBackground = true)
 @Composable
 fun CurrencyInputEmptyPreview() {
-    MaterialTheme {
+    MockPosChallengeTheme {
         var amountInCents by remember { mutableLongStateOf(0L) }
         CurrencyInput(
             modifier = Modifier.padding(16.dp),
@@ -153,7 +154,7 @@ fun CurrencyInputEmptyPreview() {
 @Preview(showBackground = true)
 @Composable
 fun CurrencyInputMaxPreview() {
-    MaterialTheme {
+    MockPosChallengeTheme {
         var amountInCents by remember { mutableLongStateOf(999999L) }
         CurrencyInput(
             modifier = Modifier.padding(16.dp),
