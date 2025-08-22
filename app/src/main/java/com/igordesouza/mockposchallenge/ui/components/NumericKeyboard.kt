@@ -71,6 +71,7 @@ fun NumericKeyboard(
                 NumberButton(
                     number = "00",
                     onClick = { onNumberClick("00") },
+                    isEnabled = isConfirmValueButtonEnabled,
                     modifier = Modifier.width(itemWidth)
                 )
                 NumberButton(
@@ -102,13 +103,15 @@ fun NumericKeyboard(
 
 @Composable
 private fun NumberButton(
+    modifier: Modifier = Modifier,
     number: String,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    isEnabled: Boolean = true
 ) {
     Button(
         onClick = onClick,
         shape = CircleShape,
+        enabled = isEnabled,
         modifier = modifier
             .aspectRatio(1f),
         contentPadding = PaddingValues(0.dp),

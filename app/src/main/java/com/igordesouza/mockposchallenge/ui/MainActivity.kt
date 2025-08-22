@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import com.igordesouza.mockposchallenge.ui.screens.home.HomeScreenRoot
 import com.igordesouza.mockposchallenge.ui.theme.MockPosChallengeTheme
 import com.igordesouza.mockposchallenge.BuildConfig
-import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.res.stringResource
 import com.igordesouza.mockposchallenge.R

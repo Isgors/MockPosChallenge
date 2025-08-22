@@ -73,6 +73,11 @@ fun CurrencyInput(
         }
     }
 
+    val isRawNumericTextValid = remember(rawNumericText) {
+        (rawNumericText.toLongOrNull() ?: 0L) > 0L &&
+                (rawNumericText.toLongOrNull() ?: 0L) <= MAX_CENTS_VALUE
+    }
+
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
@@ -102,23 +107,23 @@ fun CurrencyInput(
             painter = painterResource(id = R.drawable.ic_backspace),
             contentDescription = "Backspace (tap) or Clear Input (long press)",
             tint = MaterialTheme.colorScheme.primary.copy(
-                alpha = if (isEditable && rawNumericText.isNotEmpty()) 1f else 0.5f
+                alpha = if (isEditable && isRawNumericTextValid) 1f else 0.5f
             ),
             modifier = Modifier
                 .padding(start = 12.dp, end = 4.dp)
                 .clip(MaterialTheme.shapes.small)
                 .combinedClickable(
                     onClick = {
-                        if (isEditable && rawNumericText.isNotEmpty()) {
+                        if (isEditable && isRawNumericTextValid) {
                             onRawNumericTextChange(rawNumericText.dropLast(1))
                         }
                     },
                     onLongClick = {
-                        if (isEditable && rawNumericText.isNotEmpty()) {
+                        if (isEditable && isRawNumericTextValid) {
                             onRawNumericTextChange("")
                         }
                     },
-                    enabled = isEditable && rawNumericText.isNotEmpty(),
+                    enabled = isEditable && isRawNumericTextValid,
                     role = Role.Button,
                     interactionSource = iconInteractionSource,
                     indication = ripple(bounded = false)
