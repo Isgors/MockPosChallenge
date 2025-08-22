@@ -13,8 +13,11 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,10 +31,12 @@ import com.igordesouza.mockposchallenge.ui.theme.MockPosChallengeTheme
 @Composable
 fun NumericKeyboard(
     modifier: Modifier = Modifier,
-    onNumberClick: (String) -> Unit
+    onNumberClick: (String) -> Unit,
+    isConfirmValueButtonEnabled: Boolean = true,
+    onConfirmValueButtonClick: () -> Unit = {}
 ) {
     val numbers = (1..9).map { it.toString() }
-    val spacing = 12.dp
+    val spacing = 16.dp
     val horizontalGridPadding = 16.dp
 
     Column(
@@ -61,13 +66,35 @@ fun NumericKeyboard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = (itemWidth * 3) + (spacing * 3) + spacing),
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
+                NumberButton(
+                    number = "00",
+                    onClick = { onNumberClick("00") },
+                    modifier = Modifier.width(itemWidth)
+                )
                 NumberButton(
                     number = "0",
                     onClick = { onNumberClick("0") },
                     modifier = Modifier.width(itemWidth)
                 )
+                Button(
+                    onClick = { onConfirmValueButtonClick() },
+                    enabled = isConfirmValueButtonEnabled,
+                    shape = CircleShape,
+                    modifier = Modifier
+                        .aspectRatio(1f),
+                    contentPadding = PaddingValues(0.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.tertiary
+                    )
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.CheckCircle,
+                        contentDescription = "ProcessPaymentButton"
+                    )
+                }
             }
         }
     }
@@ -86,8 +113,8 @@ private fun NumberButton(
             .aspectRatio(1f),
         contentPadding = PaddingValues(0.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-            contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.tertiary
         )
     ) {
         Text(

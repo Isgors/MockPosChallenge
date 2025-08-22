@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Standard Flavor - Dark Theme -->
-    <color name="flavor_primary_dark">#FF3700B3</color> <!-- Deep Purple -->
-    <color name="flavor_secondary_dark">#FF03DAC6</color> <!-- Teal -->
-    <color name="flavor_tertiary_dark">#FF018786</color> <!-- Dark Teal -->
+    <color name="color_primary_dark">#FF3700B3</color> <!-- Deep Purple -->
+    <color name="color_secondary_dark">#FF03DAC6</color> <!-- Teal -->
+    <color name="color_tertiary_dark">#FF018786</color> <!-- Dark Teal -->
 
     <!-- Standard Flavor - Light Theme -->
-    <color name="flavor_primary_light">#FF6200EE</color> <!-- Purple -->
-    <color name="flavor_secondary_light">#FF03DAC5</color> <!-- Light Teal -->
-    <color name="flavor_tertiary_light">#FF018786</color> <!-- Dark Teal -->
+    <color name="color_primary_light">#FF6200EE</color> <!-- Purple -->
+    <color name="color_secondary_light">#FF03DAC5</color> <!-- Light Teal -->
+    <color name="color_tertiary_light">#FF018786</color> <!-- Dark Teal -->
 </resources>

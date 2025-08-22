@@ -18,8 +18,20 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        // An example of a signing config configuration for release builds
+        //Real world scenarios depend on manufacturer and sometimes SO versions
+        create("release") {
+            storeFile = file("release_keystore.jks")
+            storePassword = "STORE_PASSWORD"
+            keyAlias = "KEY_ALIAS"
+            keyPassword = "KEY_PASSWORD"
+        }
+    }
+
     buildTypes {
         debug {
+            signingConfig = signingConfigs.getByName("debug")
             isMinifyEnabled = false
         }
         release {
@@ -28,10 +40,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
-    flavorDimensions += listOf("version", "environment")
+    flavorDimensions += listOf("version", "manufacturer")
 
     productFlavors {
         create("standard") {
@@ -40,11 +53,11 @@ android {
         create("gold") {
             dimension = "version"
         }
-        create("staging") {
-            dimension = "environment"
+        create("positivo") {
+            dimension = "manufacturer"
         }
-        create("production") {
-            dimension = "environment"
+        create("sumni") {
+            dimension = "manufacturer"
         }
     }
 
@@ -54,9 +67,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+        freeCompilerArgs = listOf("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode")
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 

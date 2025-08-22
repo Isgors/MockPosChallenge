@@ -5,18 +5,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.colorResource
 import com.igordesouza.mockposchallenge.R
 
-// Composable functions to get flavor-specific colors
 @Composable
-fun flavorPrimaryDark(): Color = colorResource(id = R.color.flavor_primary_dark)
+fun colorPrimaryDark(): Color = colorResource(id = R.color.color_primary_dark)
 @Composable
-fun flavorSecondaryDark(): Color = colorResource(id = R.color.flavor_secondary_dark)
+fun colorSecondaryDark(): Color = colorResource(id = R.color.color_secondary_dark)
 @Composable
-fun flavorTertiaryDark(): Color = colorResource(id = R.color.flavor_tertiary_dark)
+fun colorTertiaryDark(): Color = colorResource(id = R.color.color_tertiary_dark)
 
 
 @Composable
-fun flavorPrimaryLight(): Color = colorResource(id = R.color.flavor_primary_light)
+fun colorPrimaryLight(): Color = colorResource(id = R.color.color_primary_light)
 @Composable
-fun flavorSecondaryLight(): Color = colorResource(id = R.color.flavor_secondary_light)
+fun colorSecondaryLight(): Color = colorResource(id = R.color.color_secondary_light)
 @Composable
-fun flavorTertiaryLight(): Color = colorResource(id = R.color.flavor_tertiary_light)
+fun colorTertiaryLight(): Color = colorResource(id = R.color.color_tertiary_light)

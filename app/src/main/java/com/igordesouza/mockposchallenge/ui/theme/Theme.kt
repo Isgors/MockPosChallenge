@@ -12,23 +12,23 @@ import androidx.compose.ui.platform.LocalContext
 
 @Composable
 private fun getAppDarkColorScheme() = darkColorScheme(
-    primary = flavorPrimaryDark(),
-    secondary = flavorSecondaryDark(),
-    tertiary = flavorTertiaryDark(),
+    primary = colorPrimaryDark(),
+    secondary = colorSecondaryDark(),
+    tertiary = colorTertiaryDark(),
 )
 
 @Composable
 private fun getAppLightColorScheme() = lightColorScheme(
-    primary = flavorPrimaryLight(),
-    secondary = flavorSecondaryLight(),
-    tertiary = flavorTertiaryLight(),
+    primary = colorPrimaryLight(),
+    secondary = colorSecondaryLight(),
+    tertiary = colorTertiaryLight(),
 )
 
 @Composable
 fun MockPosChallengeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
